@@ -169,8 +169,6 @@ router.post("/login", catchAsyncErrors(async(req, res, next) =>{
 // get users from database
 router.get("/getuser", isAuthenticated, catchAsyncErrors(async(req, res, next) => {
     try{
-
-       
         const user = await User.findById(req.user.id);
         if(!user){
             return res.status(400).json({
